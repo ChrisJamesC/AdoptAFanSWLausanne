@@ -21,12 +21,23 @@
     padding-bottom: 14.5px;
 }
 
+.navbar-small .navbar-form {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+@media(max-width:480px) {
+    .navbar-small .navbar-brand {
+        font-size: 10px;
+    }
+}
+
 
 /* Searchbar */
 .navbar .searchbar {
     display: none;
     position: absolute;
-    width: 50%;
+    width: 45%;
     font-family: Lato;
     font-weight: normal;
 }
