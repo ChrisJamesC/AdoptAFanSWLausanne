@@ -219,11 +219,12 @@ section.success {
 
 #events .events-item .events-link .caption {
    opacity: 1;
-   background-color: rgba(0,0,0,0.3);
+   background-color: transparent;
+
 }
 
 #events .events-item .events-link .caption:hover {
-   opacity: 0.3;
+   /* opacity: 0; */
 }
 
 
