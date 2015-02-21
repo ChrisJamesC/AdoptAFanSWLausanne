@@ -37,6 +37,7 @@
 
 .navbar .searchbar .search-input {
     height: 35px;
+    border-width: 0;
 }
 
 .navbar .searchbar .search-submit-btn {
