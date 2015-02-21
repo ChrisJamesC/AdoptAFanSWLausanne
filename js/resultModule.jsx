@@ -13,16 +13,27 @@ var ResultList = React.createClass({
    }
 })
 
+var style = {
+   captionTest: {
+      textOverflow: "ellipsis",
+      overflow: "hidden",
+      whiteSpace: "nowrap"
+
+   }
+}
 
 var Result = React.createClass({
    render : function() {
       var eventData = this.props.eventData; 
       return (
-         <div className="col-sm-4 portfolio-item">
-           <a href="#portfolioModal1" className="portfolio-link">
+         <div className="col-sm-4 events-item">
+           <a href="#eventsModal1" className="events-link">
                <div className="caption">
                    <div className="caption-content">
-                       {eventData.Name}
+                     <div style={style.captionTest}>
+                     {eventData.name}
+                     </div>
+                     Participants: {eventData.attendies}
                    </div>
                </div>
                <img src="img/icons/PNG/512/free-60-icons-31.png" className="img-responsive" alt=""></img>
