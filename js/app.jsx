@@ -14,19 +14,19 @@ var topEventList = [
 ];
 
 var data = {
+   "version": 2,
    "events": [
       {
          "name": "Let's celebrate the end of the startup weekends!", 
-         "organizer": "Renada", 
-         "topEvent": 1, 
+         "organizer": "Renata", 
+         "topEvent": 0, 
          "description": "We sprinted, cheered for our teams, it's now time to relax!", 
          "tags": [
             "beer", 
-            "germany", 
-            "bayern Munich", 
-            "football"
+            "Lausanne", 
+            "#SW"
          ], 
-         "attendies": 8, 
+         "attendies":20, 
          "location": {
             "country": "Switzerland", 
             "city": "Lausanne", 
@@ -41,7 +41,108 @@ var data = {
          "name": "Visit the city with locals", 
          "organizer": "Christopher", 
          "topEvent": 2,
-         "description": "The competition volonteers want to show you around!", 
+         "description": "The competition volunteers want to show you around!", 
+         "tags": [
+         ], 
+         "attendies": 5, 
+         "location": {
+            "country": "Brazil", 
+            "city": "Rio", 
+            "address": "Rua grande", 
+            "name": "Jobi"
+         }, 
+         "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
+         "endTime": "14224529444"
+      },
+      {
+         "name": "Learn Spanish songs in an Irish pub", 
+         "organizer": "Claire", 
+         "topEvent": 2, 
+         "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
+         "tags": [
+            "beer", 
+            "germany", 
+            "bayern Munich", 
+            "football"
+         ], 
+         "attendies": 50, 
+         "location": {
+            "country": "Brazil", 
+            "city": "Rio", 
+            "address": "Rua grande", 
+            "name": "Jobi"
+         }, 
+         "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
+         "endTime": "14224529444"
+      },
+      {
+         "name": "The best sushi in Rio!", 
+         "organizer": "Claire", 
+         "topEvent": 0, 
+         "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
+         "tags": [
+            "beer", 
+            "germany", 
+            "bayern Munich", 
+            "football"
+         ], 
+         "attendies": 7, 
+         "location": {
+            "country": "Switzerland", 
+            "city": "Lausanne", 
+            "address": "Place de la riponne", 
+            "name": "Great Escape"
+         }, 
+         "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
+         "endTime": "14224529444"
+      },
+      {
+         "name": "Fluo Party!", 
+         "organizer": "Claire", 
+         "topEvent": 0, 
+         "description": "Wear Fluo, have fun!", 
+         "tags": [
+            "beer", 
+            "germany", 
+            "bayern Munich", 
+            "football"
+         ], 
+         "attendies": 67, 
+         "location": {
+            "country": "Switzerland", 
+            "city": "Lausanne", 
+            "address": "Place de la riponne", 
+            "name": "Great Escape"
+         }, 
+         "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
+         "endTime": "14224529444"
+      },
+      {
+         "name": "Football tournament in bars!", 
+         "organizer": "Claire", 
+         "topEvent": 0, 
+         "description": "Let's play soccer in bars!", 
+         "tags": [
+            "beer", 
+            "germany", 
+            "bayern Munich", 
+            "football"
+         ], 
+         "attendies": 13, 
+         "location": {
+            "country": "Switzerland", 
+            "city": "Lausanne", 
+            "address": "Place de la riponne", 
+            "name": "Great Escape"
+         }, 
+         "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
+         "endTime": "14224529444"
+      },
+      {
+         "name": "Poker night with Bayern Munich supporters", 
+         "organizer": "Claire", 
+         "topEvent": 0, 
+         "description": "Wear Fluo, have fun!", 
          "tags": [
             "beer", 
             "germany", 
@@ -59,10 +160,31 @@ var data = {
          "endTime": "14224529444"
       },
       {
-         "name": "Learn Spanish songs in an Irish pub", 
+         "name": "Local shows you the cathedral and explains some myths", 
          "organizer": "Claire", 
-         "topEvent": 2, 
-         "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
+         "topEvent": 0, 
+         "description": "Wear Fluo, have fun!", 
+         "tags": [
+            "beer", 
+            "germany", 
+            "bayern Munich", 
+            "football"
+         ], 
+         "attendies": 23, 
+         "location": {
+            "country": "Switzerland", 
+            "city": "Lausanne", 
+            "address": "Place de la riponne", 
+            "name": "Great Escape"
+         }, 
+         "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
+         "endTime": "14224529444"
+      },
+      {
+         "name": "Wine tasting in a train!", 
+         "organizer": "Claire", 
+         "topEvent": 0, 
+         "description": "Fine wines, great views. ", 
          "tags": [
             "beer", 
             "germany", 
@@ -78,7 +200,7 @@ var data = {
          }, 
          "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
          "endTime": "14224529444"
-      }
+      },
    ]
 };
 
@@ -91,7 +213,7 @@ var bgImages = [
 ];
 
 var storedData = JSON.parse(window.localStorage.getItem("data"))
-if(!storedData) {
+if(!storedData || !storedData.version || storedData.version!==data.version) {
    window.localStorage.setItem("data",JSON.stringify(data))
 }
 
