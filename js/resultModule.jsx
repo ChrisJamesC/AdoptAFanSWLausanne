@@ -37,11 +37,27 @@ var style = {
    }
 }
 
+var EventModal = React.createClass({
+  render: function() {
+   eventData = this.props.eventData;
+    return (
+        <ReactBootstrap.Modal {...this.props} title={eventData.name} animation={false}>
+          <div className="modal-body">
+             <i>{eventData.organizer}</i>
+          </div>
+          <div className="modal-footer">
+          </div>
+        </ReactBootstrap.Modal>
+      );
+  }
+});
+
 var Result = React.createClass({
    render : function() {
       var eventData = this.props.eventData; 
       return (
          <div className="col-sm-3 events-item">
+         <ReactBootstrap.ModalTrigger modal={<EventModal eventData={eventData} />}>
            <a className="events-link">
                <div className="caption">
                    <div className="caption-content">
@@ -53,6 +69,7 @@ var Result = React.createClass({
                </div>
                <img src="img/icons/PNG/512/free-60-icons-31.png" className="img-responsive" alt=""></img>
            </a>
+         </ReactBootstrap.ModalTrigger>
          </div>
       )
    }
