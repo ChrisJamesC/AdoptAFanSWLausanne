@@ -83,7 +83,11 @@ var data = {
 };
 
 var bgImages = [
-    'https://d2qtjyzobi7t54.cloudfront.net/api/file/munrZfcSxeGDfc4PUcUw/convert?w=640&fit=max'
+    'https://d2qtjyzobi7t54.cloudfront.net/api/file/N9dbp79jStywsBe7Wpss/convert?w=640&fit=max',
+    'https://d2qtjyzobi7t54.cloudfront.net/api/file/naeHfGq7Rdq0U7C1ix6K/convert?w=640&fit=max',
+    'https://d2qtjyzobi7t54.cloudfront.net/api/file/cn9Vjer5S3qiEkvgbisY/convert?w=640&fit=max',
+    'https://d2qtjyzobi7t54.cloudfront.net/api/file/3eYjSIGjSEuDT4SG73g5/convert?w=640&fit=max',
+    'https://d2qtjyzobi7t54.cloudfront.net/api/file/ukA8OyIlTTejYAD552bB/convert?w=640&fit=max'
 ];
 
 var storedData = JSON.parse(window.localStorage.getItem("data"))
