@@ -26,8 +26,8 @@ var Result = React.createClass({
    render : function() {
       var eventData = this.props.eventData; 
       return (
-         <div className="col-sm-4 events-item">
-           <a href="#eventsModal1" className="events-link">
+         <div className="col-sm-3 events-item">
+           <a className="events-link">
                <div className="caption">
                    <div className="caption-content">
                      <div style={style.captionTest}>
@@ -41,5 +41,4 @@ var Result = React.createClass({
          </div>
       )         
    }
-
 })
