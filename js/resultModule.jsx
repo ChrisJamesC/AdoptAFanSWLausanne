@@ -13,11 +13,12 @@ var ResultList = React.createClass({
    }
 });
 
-var SearchEventOptions = React.createClass({
+var EventSelect = React.createClass({
     render : function() {
         var topEventList = this.props.topEventList;
+
         return (
-            <select className="form-control search-select">
+            <select className={"form-control " + this.props.selectClass}>
             {
                 topEventList.map(function(d,i){
                     return <option value={i}>{d.name}</option>

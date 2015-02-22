@@ -1,5 +1,9 @@
 topEventList = [
    {
+      "name": "Near you",
+      "tags": "near you"
+   },
+   {
       "name": "World Cup 2014",
       "tags": "football worldwide pro soccer"
    },
@@ -35,7 +39,7 @@ var data = {
       {
          "name": "Visit the city with locals", 
          "organizer": "Claire", 
-         "topEvent": 0,
+         "topEvent": 2,
          "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
          "tags": [
             "beer", 
@@ -56,7 +60,7 @@ var data = {
       {
          "name": "Learn Spanish songs in an Irish pub", 
          "organizer": "Claire", 
-         "topEvent": 0, 
+         "topEvent": 2, 
          "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
          "tags": [
             "beer", 
@@ -86,12 +90,9 @@ if(!storedData) {
 // Initial render
 ////////////////////////////////////////////////
 function renderPage(events) {
-    // Render new events
-    var eventsToRender = events;
-    if (!eventsToRender) { eventsToRender = JSON.parse(window.localStorage.getItem("data")).events }
-    React.render(<ResultList events={eventsToRender} />, document.getElementById('resultList'));
-
-    renderHeaderSearchEventsOptions();
+    renderHeaderSearchSelect();
+    renderEvents();
+    renderEventsSelect();
 }
 renderPage();
 
@@ -230,6 +231,20 @@ function renderSearch(filteredEvents) {
     renderPage(filteredEvents);
 }
 
-function renderHeaderSearchEventsOptions() {
-    React.render(<SearchEventOptions topEventList={topEventList} />, document.getElementById('header-search-select'));
+function renderHeaderSearchSelect() {
+    React.render(<EventSelect topEventList={topEventList} selectClass={'search-select'} />, document.getElementById('header-search-select'));
+}
+
+////////////////////////////////////////////////
+// Search
+////////////////////////////////////////////////
+function renderEvents(events) {
+    var eventsToRender = events;
+
+    if (!eventsToRender) { eventsToRender = JSON.parse(window.localStorage.getItem("data")).events }
+    React.render(<ResultList events={eventsToRender} />, document.getElementById('resultList'));
+}
+
+function renderEventsSelect() {
+    React.render(<EventSelect topEventList={topEventList} selectClass={'event-select'} />, document.getElementById('event-select'));
 }
