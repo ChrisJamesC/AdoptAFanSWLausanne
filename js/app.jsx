@@ -14,6 +14,7 @@ var topEventList = [
 ];
 
 var data = {
+   "version": 2,
    "events": [
       {
          "name": "Let's celebrate the end of the startup weekends!", 
@@ -212,7 +213,7 @@ var bgImages = [
 ];
 
 var storedData = JSON.parse(window.localStorage.getItem("data"))
-if(!storedData) {
+if(!storedData || !storedData.version || storedData.version!==data.version) {
    window.localStorage.setItem("data",JSON.stringify(data))
 }
 
