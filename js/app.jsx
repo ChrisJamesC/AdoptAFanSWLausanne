@@ -85,11 +85,12 @@ if(!storedData) {
 ////////////////////////////////////////////////
 // Initial render
 ////////////////////////////////////////////////
-function renderPage() {
-   dataToRender= JSON.parse(window.localStorage.getItem("data"))
-   React.render(<ResultList events={dataToRender.events} />, document.getElementById('resultList'))
+function renderPage(events) {
+    var eventsToRender = events;
+    if (!eventsToRender) { eventsToRender = JSON.parse(window.localStorage.getItem("data")).events }
+    React.render(<ResultList events={eventsToRender} />, document.getElementById('resultList'))
 }
-renderPage()
+renderPage();
 
 ////////////////////////////////////////////////
 // Form to create new events
@@ -223,5 +224,5 @@ React.render(overlayTriggerInstance, document.getElementById('createEventModalTr
 // Search handler function
 ////////////////////////////////////////////////
 function renderSearch(filteredEvents) {
-    React.render(<ResultList events={filteredEvents} />,document.getElementById('resultList'))
+    renderPage(filteredEvents);
 }
