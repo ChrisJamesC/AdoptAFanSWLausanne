@@ -70,11 +70,6 @@ if(!storedData) {
 
 React.render(<ResultList events={data.events} />, document.getElementById('resultList'))
 
-function search(query) {
-   // Example of search function
-   var storedData = JSON.parse(window.localStorage.getItem("data"))
-   filteredEvents = storedData.events.filter(function(d) {
-      return true;
-   })
-   React.render(<ResultList events={newData.events} />,document.getElementById('resultList'))
+function renderSearch(filteredEvents) {
+    React.render(<ResultList events={filteredEvents} />,document.getElementById('resultList'))
 }

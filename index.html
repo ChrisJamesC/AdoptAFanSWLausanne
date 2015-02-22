@@ -51,7 +51,9 @@
                 <!-- Search box -->
                 <div class="navbar-form navbar-left">
                     <div class="input-group searchbar">
-                        <input type="text" class="search-input form-control" placeholder="Search..." />
+                        <span class="search-input-container">
+                            <input type="text" class="search-input form-control typeahead" autocomplete="off" placeholder="Search for events..." />
+                        </span>
                         <span class="input-group-btn">
                             <button class="btn btn-danger search-submit-btn" type="button">
                                 <span class=" glyphicon glyphicon-search"></span>
@@ -97,7 +99,17 @@
             <!-- Search box -->
             <div class="row">
                 <div class="input-group col-md-12 searchbar">
-                    <input type="text" class="search-input form-control" placeholder="Search..." />
+                    <span class="search-select-container">
+                        <select class="form-control search-select">
+                            <option value="world_cup_2014">World Cup 2014</option>
+                            <option value="olympics_2016">Olympics 2016</option>
+                        </select>
+                    </span>
+
+                    <span class="search-input-container">
+                        <input type="text" class="search-input form-control typeahead" autocomplete="off" placeholder="Search for events..." />
+                    </span>
+
                     <span class="input-group-btn">
                         <button class="btn btn-danger search-submit-btn" type="button">
                             <span class=" glyphicon glyphicon-search"></span>
@@ -310,9 +322,11 @@
     <script src="js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
+    <script src="js/bootstrap3-typeahead.js"></script>
     <script src="js/freelancer.js"></script>
     <script src="js/JSXTransformer.js"></script>
     <script src="js/react.min.js"></script>
+    <script src="js/search.js"></script>
     <script type="text/jsx" src="js/resultModule.jsx"></script>
     <script type="text/jsx" src="js/app.jsx"></script>
 
