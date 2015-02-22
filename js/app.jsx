@@ -1,8 +1,20 @@
+topEventList = [
+   {
+      "name": "World Cup 2014", 
+      "tags": "football worldwide pro soccer"
+   },  
+   {
+      "name": "Rio 2016", 
+      "tags": "olympics worldwide pro"
+   },  
+]
+
 var data = {
    "events": [
       {
          "name": "Drink beer with French boys!", 
          "organizer": "Claire", 
+         "topEvent": 1, 
          "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
          "tags": [
             "beer", 
@@ -23,6 +35,7 @@ var data = {
       {
          "name": "Visit the city with locals", 
          "organizer": "Claire", 
+         "topEvent": 0,
          "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
          "tags": [
             "beer", 
@@ -43,6 +56,7 @@ var data = {
       {
          "name": "Learn Spanish songs in an Irish pub", 
          "organizer": "Claire", 
+         "topEvent": 0, 
          "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
          "tags": [
             "beer", 
@@ -87,6 +101,7 @@ var MyModal = React.createClass({
     var newEvent = {
       name: this.refs.name.getDOMNode().value.trim(),
       organizer: this.refs.organizer.getDOMNode().value.trim(),
+      topEvent: this.refs.topEvent.getDOMNode().value.trim(), 
       description: this.refs.description.getDOMNode().value.trim(),
       tags: this.refs.tags.getDOMNode().value.trim().split(' '),
       attendies:0, 
@@ -121,6 +136,18 @@ var MyModal = React.createClass({
                   <label htmlFor="inputOrganizer" className="col-sm-2 control-label">Organizer</label>
                   <div className='col-sm-10'>
                      <input type="text" ref='organizer' id='inputOrganizer' placeholder="Organizer"  className="form-control"/>
+                  </div>
+               </div>
+               <div className="form-group">
+                  <label htmlFor="inputTopEvent" className="col-sm-2 control-label">Major Event</label>
+                  <div className='col-sm-10'>
+                     <select ref='topEvent' id='inputTopEvent' placeholder="Major Event"  className="form-control">
+                        {
+                           topEventList.map(function(d,i){
+                              return <option value={i}>{d.name}</option>
+                           }) 
+                        } 
+                     </select>
                   </div>
                </div>
                <div className="form-group">
