@@ -13,7 +13,7 @@ var cbpAnimatedHeader = (function() {
 	var docElem = document.documentElement,
 		header = document.querySelector( '.navbar-fixed-top' ),
 		didScroll = false,
-		changeHeaderOn = 300;
+		changeHeaderOn = 373;   // Height of header, - 50px for header, - 50px for search bar
 
 	function init() {
 		window.addEventListener( 'scroll', function( event ) {
