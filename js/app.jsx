@@ -1,4 +1,8 @@
-topEventList = [
+var topEventList = [
+   {
+      "name": "Near you",
+      "tags": "near you"
+   },
    {
       "name": "World Cup 2014",
       "tags": "football worldwide pro soccer"
@@ -7,15 +11,15 @@ topEventList = [
       "name": "Rio 2016",
       "tags": "olympics worldwide pro"
    },
-]
+];
 
 var data = {
    "events": [
       {
-         "name": "Drink beer with French boys!", 
-         "organizer": "Claire", 
+         "name": "Let's celebrate the end of the startup weekends!", 
+         "organizer": "Renada", 
          "topEvent": 1, 
-         "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
+         "description": "We sprinted, cheered for our teams, it's now time to relax!", 
          "tags": [
             "beer", 
             "germany", 
@@ -26,17 +30,18 @@ var data = {
          "location": {
             "country": "Switzerland", 
             "city": "Lausanne", 
-            "address": "Place de la riponne", 
+            "address": "Place de la Riponne", 
             "name": "Great Escape"
          }, 
-         "startTime": "14224527444", //utcTime 
+
+         "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
          "endTime": "14224529444"
       },
       {
          "name": "Visit the city with locals", 
-         "organizer": "Claire", 
-         "topEvent": 0,
-         "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
+         "organizer": "Christopher", 
+         "topEvent": 2,
+         "description": "The competition volonteers want to show you around!", 
          "tags": [
             "beer", 
             "germany", 
@@ -50,13 +55,13 @@ var data = {
             "address": "Place de la riponne", 
             "name": "Great Escape"
          }, 
-         "startTime": "14224527444", //utcTime 
+         "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
          "endTime": "14224529444"
       },
       {
          "name": "Learn Spanish songs in an Irish pub", 
          "organizer": "Claire", 
-         "topEvent": 0, 
+         "topEvent": 2, 
          "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
          "tags": [
             "beer", 
@@ -71,11 +76,15 @@ var data = {
             "address": "Place de la riponne", 
             "name": "Great Escape"
          }, 
-         "startTime": "14224527444", //utcTime 
+         "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
          "endTime": "14224529444"
       }
    ]
-}
+};
+
+var bgImages = [
+    'https://d2qtjyzobi7t54.cloudfront.net/api/file/munrZfcSxeGDfc4PUcUw/convert?w=640&fit=max'
+];
 
 var storedData = JSON.parse(window.localStorage.getItem("data"))
 if(!storedData) {
@@ -86,12 +95,9 @@ if(!storedData) {
 // Initial render
 ////////////////////////////////////////////////
 function renderPage(events) {
-    // Render new events
-    var eventsToRender = events;
-    if (!eventsToRender) { eventsToRender = JSON.parse(window.localStorage.getItem("data")).events }
-    React.render(<ResultList events={eventsToRender} />, document.getElementById('resultList'));
-
-    renderHeaderSearchEventsOptions();
+    renderHeaderSearchSelect();
+    renderEvents(events);
+    renderEventsSelect();
 }
 renderPage();
 
@@ -148,7 +154,7 @@ var MyModal = React.createClass({
                      <select ref='topEvent' id='inputTopEvent' placeholder="Major Event"  className="form-control">
                         {
                            topEventList.map(function(d,i){
-                              return <option value={i}>{d.name}</option>
+                              return <option key={i} value={i}>{d.name}</option>
                            })
                         }
                      </select>
@@ -227,9 +233,23 @@ React.render(overlayTriggerInstance, document.getElementById('createEventModalTr
 // Search
 ////////////////////////////////////////////////
 function renderSearch(filteredEvents) {
-    renderPage(filteredEvents);
+    renderEvents(filteredEvents);
 }
 
-function renderHeaderSearchEventsOptions() {
-    React.render(<SearchEventOptions topEventList={topEventList} />, document.getElementById('header-search-select'));
+function renderHeaderSearchSelect() {
+    React.render(<EventSelect topEventList={topEventList} selectClass={'search-select'} />, document.getElementById('header-search-select'));
+}
+
+////////////////////////////////////////////////
+// Search
+////////////////////////////////////////////////
+function renderEvents(events) {
+    var eventsToRender = events;
+
+    if (!eventsToRender) { eventsToRender = JSON.parse(window.localStorage.getItem("data")).events }
+    React.render(<ResultList events={eventsToRender} />, document.getElementById('resultList'));
+}
+
+function renderEventsSelect() {
+    React.render(<EventSelect topEventList={topEventList} selectClass={'event-select'} />, document.getElementById('event-select'));
 }
