@@ -1,21 +1,36 @@
+var typeAheadSource = buildTypeAhead();
+
 $(".search-input").bind("paste keyup", function () {
-    console.log("search text: " + $(this).val());
+    performSearch($(this).val());
+
     $('.typeahead').typeahead({
-        source:['hi', 'no']
+        source: typeAheadSource,
+        afterSelect: function (val) {
+            console.log('selected typeahead: ' + val);
+            performSearch(val);
+        }
     });
 });
 
-$(".search-input").bind("keypress", function (event) {
-    if (event.which == '13') {
-        console.log('submit with query: ' + $(this).val());
-        performSearch($(this).val());
-        return false;
-    }
-});
+function buildTypeAhead() {
+    var storedData = JSON.parse(window.localStorage.getItem("data"))
+        typeAheadSource = [];
+
+    $.each(storedData.events, function (index, event) {
+        if ($.inArray(event.name, typeAheadSource) === -1) { typeAheadSource.push(event.name); }
+
+        $.each(event.tags, function (index, tag) {
+            if ($.inArray(tag, typeAheadSource) === -1) { typeAheadSource.push(tag); }
+        });
+    });
+
+    return typeAheadSource;
+}
 
 function performSearch(query) {
-    // Example of search function
-    var storedData = JSON.parse(window.localStorage.getItem("data"))
+    console.log('performed search query: ' + query);
+
+    var storedData = JSON.parse(window.localStorage.getItem("data"));
     filteredEvents = storedData.events.filter(function(event) {
         return queryMatchEvent(query, event);
     });
