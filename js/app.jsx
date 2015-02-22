@@ -16,10 +16,10 @@ var topEventList = [
 var data = {
    "events": [
       {
-         "name": "Drink beer with French boys!", 
-         "organizer": "Claire", 
+         "name": "Let's celebrate the end of the startup weekends!", 
+         "organizer": "Renada", 
          "topEvent": 1, 
-         "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
+         "description": "We sprinted, cheered for our teams, it's now time to relax!", 
          "tags": [
             "beer", 
             "germany", 
@@ -30,17 +30,18 @@ var data = {
          "location": {
             "country": "Switzerland", 
             "city": "Lausanne", 
-            "address": "Place de la riponne", 
+            "address": "Place de la Riponne", 
             "name": "Great Escape"
          }, 
-         "startTime": "14224527444", //utcTime 
+
+         "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
          "endTime": "14224529444"
       },
       {
          "name": "Visit the city with locals", 
-         "organizer": "Claire", 
+         "organizer": "Christopher", 
          "topEvent": 2,
-         "description": "We just arrived in the city and are looking for nice Germany supporters to drink with! Oponents are welcome too! We are going to watch the Bayern match", 
+         "description": "The competition volonteers want to show you around!", 
          "tags": [
             "beer", 
             "germany", 
@@ -54,7 +55,7 @@ var data = {
             "address": "Place de la riponne", 
             "name": "Great Escape"
          }, 
-         "startTime": "14224527444", //utcTime 
+         "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
          "endTime": "14224529444"
       },
       {
@@ -75,7 +76,7 @@ var data = {
             "address": "Place de la riponne", 
             "name": "Great Escape"
          }, 
-         "startTime": "14224527444", //utcTime 
+         "startTime": "Sunday, Feb 22 2015, 8:00pm", //utcTime 
          "endTime": "14224529444"
       }
    ]
@@ -153,7 +154,7 @@ var MyModal = React.createClass({
                      <select ref='topEvent' id='inputTopEvent' placeholder="Major Event"  className="form-control">
                         {
                            topEventList.map(function(d,i){
-                              return <option value={i}>{d.name}</option>
+                              return <option key={i} value={i}>{d.name}</option>
                            })
                         }
                      </select>
