@@ -39,6 +39,14 @@ var style = {
 }
 
 var EventModal = React.createClass({
+  getInitialState: function() {
+     return { participants: this.props.eventData.attendies};              
+  },
+  handleJoin: function() {
+    var state = this.state;
+    state.participants+=1;
+   this.setState(state);           
+  },
   render: function() {
    eventData = this.props.eventData;
     return (
@@ -46,6 +54,10 @@ var EventModal = React.createClass({
           <div className="modal-body">
             <div>
              Organized by <b>{eventData.organizer}</b>
+             </div>
+             <br/>
+            <div>
+             <b>{this.state.participants}</b> participants!
              </div>
              <br/>
              <div>
@@ -66,6 +78,10 @@ var EventModal = React.createClass({
                 {eventData.location.city}, {eventData.location.country}
                </b>
              </div>
+             <br/>
+             <div className='text-center'>
+            <button className="btn btn-lg btn-success" onClick={this.handleJoin}>Join!</button>
+            </div>
           </div>
           <div className="modal-footer">
           </div>
