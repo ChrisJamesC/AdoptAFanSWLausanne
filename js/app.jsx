@@ -1,4 +1,4 @@
-topEventList = [
+var topEventList = [
    {
       "name": "Near you",
       "tags": "near you"
@@ -11,7 +11,7 @@ topEventList = [
       "name": "Rio 2016",
       "tags": "olympics worldwide pro"
    },
-]
+];
 
 var data = {
    "events": [
@@ -79,7 +79,11 @@ var data = {
          "endTime": "14224529444"
       }
    ]
-}
+};
+
+var bgImages = [
+    'https://d2qtjyzobi7t54.cloudfront.net/api/file/munrZfcSxeGDfc4PUcUw/convert?w=640&fit=max'
+];
 
 var storedData = JSON.parse(window.localStorage.getItem("data"))
 if(!storedData) {
@@ -91,7 +95,7 @@ if(!storedData) {
 ////////////////////////////////////////////////
 function renderPage(events) {
     renderHeaderSearchSelect();
-    renderEvents();
+    renderEvents(events);
     renderEventsSelect();
 }
 renderPage();
@@ -228,7 +232,7 @@ React.render(overlayTriggerInstance, document.getElementById('createEventModalTr
 // Search
 ////////////////////////////////////////////////
 function renderSearch(filteredEvents) {
-    renderPage(filteredEvents);
+    renderEvents(filteredEvents);
 }
 
 function renderHeaderSearchSelect() {

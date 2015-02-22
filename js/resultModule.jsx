@@ -57,21 +57,19 @@ var Result = React.createClass({
    render : function() {
       var eventData = this.props.eventData; 
       return (
-         <div className="col-sm-3 events-item">
-         <ReactBootstrap.ModalTrigger modal={<EventModal eventData={eventData} />}>
-           <a className="events-link">
-               <div className="caption">
-                   <div className="caption-content">
+        <ReactBootstrap.ModalTrigger modal={<EventModal eventData={eventData} />}>
+            <div className="col-sm-6 events-item events-item-fullsize" style={{backgroundImage: 'url(' + bgImages[Math.floor(Math.random() * bgImages.length)] + ')'}}>
+                <div className="caption">
+                    <div className="caption-content">
+                     <img src="img/icons/PNG/512/free-60-icons-31.png" className="img-responsive caption-icon" alt=""></img>
                      <div style={style.captionTest}>
-                     {eventData.name}
+                         {eventData.name}
                      </div>
                      Participants: {eventData.attendies}
-                   </div>
-               </div>
-               <img src="img/icons/PNG/512/free-60-icons-31.png" className="img-responsive" alt=""></img>
-           </a>
+                     </div>
+                </div>
+            </div>
          </ReactBootstrap.ModalTrigger>
-         </div>
       )
    }
 });

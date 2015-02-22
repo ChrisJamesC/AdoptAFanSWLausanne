@@ -150,11 +150,48 @@
 
 
 /* Events */
-.event-select {
+#events {
+    padding-bottom: 0;
+}
+
+#events .container {
+    width: 100%;
+    padding: 0;
+}
+
+#events .event-header {
+    padding-bottom: 15px;
+}
+
+#events .event-select {
     width: 185px;
     margin-left: auto;
     margin-right: auto;
     font-size: 1.3em;
-    text-index: 5px;
+    text-indent: 5px;
     margin-top: 5px;
+}
+
+#events .events-item.events-item-fullsize {
+    padding: 0;
+    margin: 0;
+    height: 24em;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+
+#events .events-item.events-item-fullsize .events-link {
+    max-width: none;
+}
+
+.caption-icon {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+
+#events .events-item.events-item-fullsize .caption .caption-content {
+    top: 30%;
 }
