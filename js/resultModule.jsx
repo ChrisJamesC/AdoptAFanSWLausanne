@@ -9,9 +9,24 @@ var ResultList = React.createClass({
                })
             }
          </div>
-      )    
+      )
    }
-})
+});
+
+var SearchEventOptions = React.createClass({
+    render : function() {
+        var topEventList = this.props.topEventList;
+        return (
+            <select className="form-control search-select">
+            {
+                topEventList.map(function(d,i){
+                    return <option value={i}>{d.name}</option>
+                })
+            }
+            </select>
+        );
+    }
+});
 
 var style = {
    captionTest: {
@@ -39,6 +54,6 @@ var Result = React.createClass({
                <img src="img/icons/PNG/512/free-60-icons-31.png" className="img-responsive" alt=""></img>
            </a>
          </div>
-      )         
+      )
    }
-})
+});

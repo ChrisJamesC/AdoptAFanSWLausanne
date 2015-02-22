@@ -1,12 +1,12 @@
 topEventList = [
    {
-      "name": "World Cup 2014", 
+      "name": "World Cup 2014",
       "tags": "football worldwide pro soccer"
-   },  
+   },
    {
-      "name": "Rio 2016", 
+      "name": "Rio 2016",
       "tags": "olympics worldwide pro"
-   },  
+   },
 ]
 
 var data = {
@@ -86,9 +86,12 @@ if(!storedData) {
 // Initial render
 ////////////////////////////////////////////////
 function renderPage(events) {
+    // Render new events
     var eventsToRender = events;
     if (!eventsToRender) { eventsToRender = JSON.parse(window.localStorage.getItem("data")).events }
-    React.render(<ResultList events={eventsToRender} />, document.getElementById('resultList'))
+    React.render(<ResultList events={eventsToRender} />, document.getElementById('resultList'));
+
+    renderHeaderSearchEventsOptions();
 }
 renderPage();
 
@@ -146,8 +149,8 @@ var MyModal = React.createClass({
                         {
                            topEventList.map(function(d,i){
                               return <option value={i}>{d.name}</option>
-                           }) 
-                        } 
+                           })
+                        }
                      </select>
                   </div>
                </div>
@@ -221,8 +224,12 @@ var overlayTriggerInstance = (
 React.render(overlayTriggerInstance, document.getElementById('createEventModalTrigger'));
 
 ////////////////////////////////////////////////
-// Search handler function
+// Search
 ////////////////////////////////////////////////
 function renderSearch(filteredEvents) {
     renderPage(filteredEvents);
+}
+
+function renderHeaderSearchEventsOptions() {
+    React.render(<SearchEventOptions topEventList={topEventList} />, document.getElementById('header-search-select'));
 }

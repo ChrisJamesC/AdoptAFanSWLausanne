@@ -114,6 +114,7 @@
     text-align: center;
     width: 2em;
     padding-top: 15px;
+    pointer-events: none;
     transform: scale(0.84, 0.42);
 }
 
