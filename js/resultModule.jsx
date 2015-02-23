@@ -98,8 +98,8 @@ var Result = React.createClass({
             <div className="col-sm-4 events-item events-item-fullsize" style={{backgroundImage: 'url(' + bgImages[Math.floor(Math.random() * bgImages.length)] + ')'}}>
                 <div className="caption">
                     <div className="caption-content">
-                      <img src="img/icons/PNG/512/free-60-icons-31.png" className="img-responsive caption-icon" alt=""></img>
-                      <div class='caption-text-bg'>
+                      <img src={randIcon()} className="img-responsive caption-icon" alt=""></img>
+                      <div className='caption-text-bg'>
                         <div style={style.captionTest}>
                           {eventData.name}
                         </div>

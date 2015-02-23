@@ -212,6 +212,18 @@ var bgImages = [
     'https://d2qtjyzobi7t54.cloudfront.net/api/file/ukA8OyIlTTejYAD552bB/convert?w=640&fit=max'
 ];
 
+var eventIcons = [
+   'img/iconSelection/0.png', 
+   'img/iconSelection/1.png', 
+   'img/iconSelection/2.png', 
+   'img/iconSelection/3.png' 
+]
+
+function randIcon() {
+    return eventIcons[Math.floor(Math.random() * eventIcons.length)]
+}
+
+
 var storedData = JSON.parse(window.localStorage.getItem("data"))
 if(!storedData || !storedData.version || storedData.version!==data.version) {
    window.localStorage.setItem("data",JSON.stringify(data))
